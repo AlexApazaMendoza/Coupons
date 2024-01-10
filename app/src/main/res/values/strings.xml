@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Coupons</string>
+    <string name="main_btn_consult">Consult</string>
+    <string name="main_btn_create">Create Coupon</string>
+    <string name="main_text_title">Welcome, insert your coupon and then click to consult button</string>
+    <string name="main_hint_coupon">Coupon</string>
+    <string name="main_hint_description">Description</string>
 </resources>
