@@ -10,4 +10,5 @@
     <string name="error_unknown">Error desconocido al crear cupón</string>
     <string name="main_save_success">Coupon created successfully</string>
     <string name="main_hint_active">cupón activo</string>
+    <string name="main_text_create_coupon_title">Coupon available, enter a description and clic Create Coupon</string>
 </resources>
