@@ -24,8 +24,8 @@ class MainViewModel: ViewModel() {
     fun getCouponByCode() {
         coupon.value?.code?.let {
             viewModelScope.launch {
-                _hideKeyboard.value = true
-                coupon.value = repository.getCouponByCode(it) ?: CouponEntity(code=it, isActive=false)
+                _hideKeyboard.postValue(true)
+                coupon.postValue(repository.getCouponByCode(it) ?: CouponEntity(code=it, isActive=false))
             }
         }
     }
@@ -33,14 +33,14 @@ class MainViewModel: ViewModel() {
     fun saveCoupon() {
         coupon.value?.let {
             viewModelScope.launch {
-                _hideKeyboard.value = true
+                _hideKeyboard.postValue(true)
                 try {
                     it.isActive = true
                     repository.insertCoupon(it)
                     getCouponByCode()
-                    _snackBarMsg.value = R.string.main_save_success
+                    _snackBarMsg.postValue(R.string.main_save_success)
                 } catch (e: Exception) {
-                    _snackBarMsg.value = getMessageError(e.message)
+                    _snackBarMsg.postValue(getMessageError(e.message))
                 }
             }
         }

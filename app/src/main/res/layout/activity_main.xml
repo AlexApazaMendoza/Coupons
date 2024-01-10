@@ -34,7 +34,7 @@
             android:text="@string/main_btn_create"
             tools:visibility="visible"
             android:onClick="@{() -> viewmodel.saveCoupon()}"
-            app:isGone="@{!isActive}"
+            app:isGone="@{isActive}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btnConsult"
             app:layout_constraintBottom_toTopOf="@id/guideLine"

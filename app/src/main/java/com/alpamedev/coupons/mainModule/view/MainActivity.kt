@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private fun setUpObservers() {
         mainBinding.viewmodel?.let { vm->
             vm.coupon.observe(this@MainActivity) { coupon ->
-                mainBinding.isActive = coupon?.isActive ?: false
+                mainBinding.isActive = coupon != null && coupon.isActive
             }
             vm.snackBarMessage.observe(this@MainActivity) {
                 Snackbar.make(mainBinding.root,getString(it),Snackbar.LENGTH_SHORT).show()
