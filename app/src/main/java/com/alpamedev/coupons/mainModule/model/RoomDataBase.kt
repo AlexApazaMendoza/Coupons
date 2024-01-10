@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class RoomDataBase {
     private val dao: CouponDao by lazy { CouponsApp.db.couponDao() }
-    suspend fun getCouponByCode(code: String) = dao.requestCouponByCode(code)
+    suspend fun getCouponByCode(code: String) = withContext(Dispatchers.IO) { dao.requestCouponByCode(code) }
     suspend fun insertCoupon(coupon: CouponEntity) = withContext(Dispatchers.IO) {
         try {
             dao.insertCoupon(coupon)

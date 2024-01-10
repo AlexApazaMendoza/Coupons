@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -59,11 +60,14 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:2.6.1")
 
-    //ViewModel kts
+    //ViewModel ktx
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
-    //LiveData kts
+    //LiveData ktx
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    //Activity ktx
+    implementation("androidx.activity:activity-ktx:1.8.2")
 
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")

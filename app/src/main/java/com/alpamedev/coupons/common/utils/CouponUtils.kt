@@ -8,7 +8,7 @@ fun validateTextCode(coupon: String): Boolean {
     return (coupon.length in 5..10)
 }
 
-fun geMessageError(codeError: String?): Int {
+fun getMessageError(codeError: String?): Int {
     return when (codeError) {
         Constants.ERROR_EXIST -> R.string.error_unique_code
         Constants.ERROR_LENGTH -> R.string.error_invalid_length

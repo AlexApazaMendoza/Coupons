@@ -8,4 +8,6 @@
     <string name="error_unique_code">El cupón ya existe</string>
     <string name="error_invalid_length">El cupón debe tener entre 5 y 10 caracteres</string>
     <string name="error_unknown">Error desconocido al crear cupón</string>
+    <string name="main_save_success">Coupon created successfully</string>
+    <string name="main_hint_active">cupón activo</string>
 </resources>
