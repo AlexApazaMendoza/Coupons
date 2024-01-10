@@ -5,4 +5,7 @@
     <string name="main_text_title">Welcome, insert your coupon and then click to consult button</string>
     <string name="main_hint_coupon">Coupon</string>
     <string name="main_hint_description">Description</string>
+    <string name="error_unique_code">El cupón ya existe</string>
+    <string name="error_invalid_length">El cupón debe tener entre 5 y 10 caracteres</string>
+    <string name="error_unknown">Error desconocido al crear cupón</string>
 </resources>
