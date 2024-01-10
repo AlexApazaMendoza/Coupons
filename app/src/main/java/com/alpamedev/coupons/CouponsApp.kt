@@ -1,6 +1,7 @@
 package com.alpamedev.coupons
 
 import android.app.Application
+import com.alpamedev.coupons.common.dataAccess.CouponDatabase
 
 class CouponsApp: Application() {
     companion object {

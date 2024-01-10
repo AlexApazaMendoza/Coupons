@@ -1,4 +1,4 @@
-package com.alpamedev.coupons
+package com.alpamedev.coupons.common.entities
 
 import androidx.room.Entity
 import androidx.room.Index

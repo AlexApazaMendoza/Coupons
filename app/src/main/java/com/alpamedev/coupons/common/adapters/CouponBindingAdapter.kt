@@ -1,0 +1,1 @@
+package com.alpamedev.coupons.common.adapters
