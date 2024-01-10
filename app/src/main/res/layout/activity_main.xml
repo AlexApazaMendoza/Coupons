@@ -77,7 +77,7 @@
                 android:id="@+id/tieCoupon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{viewmodel.coupon.code}"
+                android:text="@={viewmodel.coupon.code}"
                 android:contentDescription="@string/main_hint_coupon"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +98,7 @@
                 android:id="@+id/tieDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{viewmodel.coupon.description}"
+                android:text="@={viewmodel.coupon.description}"
                 android:contentDescription="@string/main_hint_description"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 tools:text="10% coupon valid for purchases over $10."/>
