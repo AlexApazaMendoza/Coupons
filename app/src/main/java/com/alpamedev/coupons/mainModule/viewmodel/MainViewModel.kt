@@ -25,7 +25,11 @@ class MainViewModel: ViewModel() {
         coupon.value?.code?.let {
             viewModelScope.launch {
                 _hideKeyboard.postValue(true)
-                coupon.postValue(repository.getCouponByCode(it) ?: CouponEntity(code=it, isActive=false))
+                repository.getCouponByCode(it)?.let {
+                    coupon.postValue(it)
+                } ?: kotlin.run {
+                    coupon.postValue(CouponEntity(code = it))
+                }
             }
         }
     }
@@ -35,8 +39,9 @@ class MainViewModel: ViewModel() {
             viewModelScope.launch {
                 _hideKeyboard.postValue(true)
                 try {
-                    it.isActive = true
-                    repository.insertCoupon(it)
+                    val coupon = it
+                    coupon.isActive = true
+                    repository.addCoupon(coupon)
                     getCouponByCode()
                     _snackBarMsg.postValue(R.string.main_save_success)
                 } catch (e: Exception) {

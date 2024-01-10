@@ -6,8 +6,8 @@ import com.alpamedev.coupons.common.utils.validateTextCode
 
 class MainRepository {
     private val roomDataBase = RoomDataBase()
-    suspend fun getCouponByCode(code: String) = roomDataBase.getCouponByCode(code)
-    suspend fun insertCoupon(coupon: CouponEntity) {
+    suspend fun getCouponByCode(code: String) = roomDataBase.requestCouponByCode(code)
+    suspend fun addCoupon(coupon: CouponEntity) {
         if (validateTextCode(coupon.code)){
             roomDataBase.insertCoupon(coupon)
         } else {
