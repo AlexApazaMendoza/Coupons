@@ -13,6 +13,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.alpamedev.coupons.mainModule.view.MainActivity
+import org.hamcrest.core.IsNot.not
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -55,5 +56,29 @@ class MainActivityCreateTest {
         //validar al snackbar
         val snackbar = onView(withId(com.google.android.material.R.id.snackbar_text))
         snackbar.check(matches(withText(R.string.main_save_success)))
+    }
+
+    /*
+    * Corrobora que el botón "crear" no existe y no es visible
+    * Test: muestro etCoupon inicia vacio, luego haz click sobre el, añade el texto "welcome01"
+    * y ahora desde btnConsult, haz click sobre el.
+    * Verifica que el boton crear no es visible
+    * */
+    @Test
+    fun consultCouponExistTest(){
+        createCouponTest()
+        val tieCoupon = onView(withId(R.id.tieCoupon))
+        /**/
+        tieCoupon.perform(replaceText(""))
+        /**/
+        tieCoupon.check(matches(withText("")))
+        tieCoupon.perform(click())
+        tieCoupon.perform(replaceText("welcome01"))
+
+        val btnConsult = onView(withId(R.id.btnConsult))
+        btnConsult.perform(click())
+
+        val btnCreate = onView(withId(R.id.btnCreate))
+        btnCreate.check(matches(not(isDisplayed())))
     }
 }
