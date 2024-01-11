@@ -1,6 +1,7 @@
 package com.alpamedev.coupons
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.typeText
@@ -15,6 +16,7 @@ import com.alpamedev.coupons.mainModule.view.MainActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.lang.Boolean.FALSE
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -36,5 +38,16 @@ class MainActivityCreateTest {
 
         val btnCreate = onView(withId(R.id.btnCreate))
         btnCreate.check(matches(isDisplayed()))    //verifica que(btn)(sea visible)
+
+        //verifica que descripcion sea vacio
+        val etDescription = onView(withId(R.id.tieDescription))
+        etDescription.check(matches(withText("")))
+
+        //ingresa alguna descripcion
+        etDescription.perform(click())
+        etDescription.perform(typeText("10% discount"))
+
+        //click en crear
+        btnCreate.perform(click())
     }
 }
