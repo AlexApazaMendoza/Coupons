@@ -31,7 +31,7 @@ class MainActivityCreateTest {
         etCoupon.check(matches(withText("")))   //verifica que(view)(coincida(con el texto("")))
 
         etCoupon.perform(click())  //hace click
-        etCoupon.perform(replaceText("welcome01"))    //escribe
+        etCoupon.perform(replaceText("welcome02"))    //escribe
 
         val btnConsult = onView(withId(R.id.btnConsult))
         btnConsult.perform(click())    //hace click
@@ -47,7 +47,13 @@ class MainActivityCreateTest {
         etDescription.perform(click())
         etDescription.perform(typeText("10% discount"))
 
+        etCoupon.perform(replaceText("welcome01"))    //escribe
+
         //click en crear
         btnCreate.perform(click())
+
+        //validar al snackbar
+        val snackbar = onView(withId(com.google.android.material.R.id.snackbar_text))
+        snackbar.check(matches(withText(R.string.main_save_success)))
     }
 }
